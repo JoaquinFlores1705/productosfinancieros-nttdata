@@ -1,0 +1,46 @@
+.form{
+    flex-wrap: wrap;
+
+}
+.form-input label, .form-input input{
+    display: block;
+    width: 100%;
+}
+.form-input input{
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+.form-input input.alert-danger{
+    border-color: var(--color-alert);
+}
+.form .form-input{
+    flex-basis: calc(50% - 25px);
+    padding: 10px;
+}
+.alert{
+    font-size: 14px;
+}
+div.alert-danger{
+    color: var(--color-alert);
+}
+
+.buttons{
+    flex-basis: 100%;
+    justify-content: space-around;
+}
+
+.buttons button, .buttons input{
+    padding: 10px;
+    cursor: pointer;
+    color: var(--color-fonts-secondary);
+    font-weight: bold;
+}
+
+.buttons input{
+    background-color: var(--button-color);
+    opacity: 70%;
+}
+
+.buttons input:disabled{
+    opacity: 50%;
+}

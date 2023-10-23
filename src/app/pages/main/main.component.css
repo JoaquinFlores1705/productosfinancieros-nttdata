@@ -1,0 +1,12 @@
+
+.table{
+    background-color: var(--background-forms);
+    padding: 20px;
+}
+.search, .btn-add{
+    padding: 10px;
+    border-radius: 5px;
+}
+.btn-add{
+    background-color: var(--button-color);
+}

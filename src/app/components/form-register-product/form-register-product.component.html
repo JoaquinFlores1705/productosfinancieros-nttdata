@@ -1,0 +1,84 @@
+<form [formGroup]="registerForm" class="form flex" (submit)="sendForm()">
+    <div class="form-input">
+        <label for="id">ID</label>
+        <input [readonly]="update" class="{{this.registerForm.get('id')?.invalid && (this.registerForm.get('id')?.dirty || this.registerForm.get('id')?.touched) ? 'alert-danger': ''}}" type="text" formControlName="id">
+        <div *ngIf="this.registerForm.get('id')?.invalid && (this.registerForm.get('id')?.dirty || this.registerForm.get('id')?.touched)">
+            <div *ngIf="this.registerForm.get('id')?.errors?.['required']"  class="alert alert-danger">
+                ID es requerido
+            </div>
+            <div *ngIf="this.registerForm.get('id')?.errors?.['minlength']"  class="alert alert-danger">
+                ID debe tener al menos 3 caracteres
+            </div>
+            <div *ngIf="this.registerForm.get('id')?.errors?.['maxlength']"  class="alert alert-danger">
+                ID debe tener maximo 10 caracteres
+            </div>
+            <div *ngIf="this.registerForm.get('id')?.errors?.['idRepeat']">
+                Este ID ya esta en uso!
+            </div>
+        </div>
+    </div>
+    <div class="form-input">
+        <label for="name">Nombre</label>
+        <input class="{{this.registerForm.get('name')?.invalid && (this.registerForm.get('name')?.dirty || this.registerForm.get('name')?.touched) ? 'alert-danger': ''}}" type="text" formControlName="name">
+        <div *ngIf="this.registerForm.get('name')?.invalid && (this.registerForm.get('name')?.dirty || this.registerForm.get('name')?.touched)">
+            <div *ngIf="this.registerForm.get('name')?.errors?.['required']"  class="alert alert-danger">
+                Nombre es requerido
+            </div>
+            <div *ngIf="this.registerForm.get('name')?.errors?.['minlength']"  class="alert alert-danger">
+                Nombre debe tener al menos 5 caracteres
+            </div>
+            <div *ngIf="this.registerForm.get('name')?.errors?.['maxlength']"  class="alert alert-danger">
+                Nombre debe tener maximo 100 caracteres
+            </div>
+        </div>
+    </div>
+    <div class="form-input">
+        <label for="description">Descripcion</label>
+        <input class="{{this.registerForm.get('description')?.invalid && (this.registerForm.get('description')?.dirty || this.registerForm.get('description')?.touched) ? 'alert-danger': ''}}" type="text" formControlName="description">
+        <div *ngIf="this.registerForm.get('description')?.invalid && (this.registerForm.get('description')?.dirty || this.registerForm.get('description')?.touched)">
+            <div *ngIf="this.registerForm.get('description')?.errors?.['required']"  class="alert alert-danger">
+                Descripcion es requerido
+            </div>
+            <div *ngIf="this.registerForm.get('description')?.errors?.['minlength']"  class="alert alert-danger">
+                Descripcion debe tener al menos 10 caracteres
+            </div>
+            <div *ngIf="this.registerForm.get('description')?.errors?.['maxlength']"  class="alert alert-danger">
+                Descripcion debe tener maximo 200 caracteres
+            </div>
+        </div>
+    </div>
+    <div class="form-input">
+        <label for="logo">Logo</label>
+        <input class="{{this.registerForm.get('logo')?.invalid && (this.registerForm.get('logo')?.dirty || this.registerForm.get('logo')?.touched) ? 'alert-danger': ''}}" type="text" formControlName="logo">
+        <div *ngIf="this.registerForm.get('logo')?.invalid && (this.registerForm.get('logo')?.dirty || this.registerForm.get('logo')?.touched)">
+            <div *ngIf="this.registerForm.get('logo')?.errors?.['required']"  class="alert alert-danger">
+                Logo es requerido
+            </div>
+        </div>
+    </div>
+    <div class="form-input">
+        <label for="date_release">Fecha Liberacion</label>
+        <input class="{{this.registerForm.get('date_release')?.invalid && (this.registerForm.get('date_release')?.dirty || this.registerForm.get('date_release')?.touched) ? 'alert-danger': ''}}" type="date" formControlName="date_release">
+        <div *ngIf="this.registerForm.get('date_release')?.invalid && (this.registerForm.get('date_release')?.dirty || this.registerForm.get('date_release')?.touched)">
+            <div *ngIf="this.registerForm.get('date_release')?.errors?.['required']"  class="alert alert-danger">
+                Fecha Liberacion es requerido
+            </div>
+            <div *ngIf="this.registerForm.get('date_release')?.errors?.['dateInvalid']"  class="alert alert-danger">
+                Fecha es igual o mayor a la fecha actual
+            </div>
+        </div>
+    </div>
+    <div class="form-input">
+        <label for="date_revision">Fecha Revision</label>
+        <input class="{{this.registerForm.get('date_revision')?.invalid && (this.registerForm.get('date_revision')?.dirty || this.registerForm.get('date_revision')?.touched) ? 'alert-danger': ''}}" type="date" formControlName="date_revision" readonly>
+        <div *ngIf="this.registerForm.get('date_revision')?.invalid && (this.registerForm.get('date_revision')?.dirty || this.registerForm.get('date_revision')?.touched)">
+            <div *ngIf="this.registerForm.get('date_revision')?.errors?.['required']"  class="alert alert-danger">
+                Fecha Revision es requerido
+            </div>
+        </div>
+    </div>
+    <div class="buttons flex">
+        <button (click)="reset()" type="button">Reiniciar</button>
+        <input [disabled]="registerForm.invalid" type="submit" value="Enviar" />
+    </div>
+</form>

@@ -1,0 +1,11 @@
+<div class="flex justify-between m-b">
+    <input type="text" class="search"  (keyup)="search()" [(ngModel)]="searchText" placeholder="Search...">
+    <button class="btn-add">
+        <a [routerLink]="['/registro/agregar']">
+            Agregar
+        </a>
+    </button>
+</div>
+<div class="table">
+    <app-table-financial-products [products]="productsSearch" (editProductEvent)="EditProduct($event)" (deleteProductEvent)="DeleteProduct($event)"></app-table-financial-products>
+</div>
