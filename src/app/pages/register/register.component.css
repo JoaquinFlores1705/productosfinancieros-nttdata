@@ -8,3 +8,10 @@
     border-top: 2px solid var(--background-color);
     padding: 10px;
 }
+.error{
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    margin-bottom: 5px;
+}

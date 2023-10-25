@@ -10,3 +10,10 @@
 .btn-add{
     background-color: var(--button-color);
 }
+.error{
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    margin-bottom: 5px;
+}

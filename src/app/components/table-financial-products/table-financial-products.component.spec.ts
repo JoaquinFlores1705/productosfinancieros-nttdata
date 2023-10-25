@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableFinancialProductsComponent } from './table-financial-products.component';
+import { FormsModule } from '@angular/forms';
 
 describe('TableFinancialProductsComponent', () => {
   let component: TableFinancialProductsComponent;
@@ -8,6 +9,7 @@ describe('TableFinancialProductsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [TableFinancialProductsComponent]
     });
     fixture = TestBed.createComponent(TableFinancialProductsComponent);

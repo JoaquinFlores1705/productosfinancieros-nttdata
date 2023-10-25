@@ -20,10 +20,6 @@ export class FormRegisterProductComponent {
   @Input() product!:FinancialProduct;
   @Output() registerProductEvent = new EventEmitter<FinancialProduct>();
 
-  constructor(private financialService: FinancialProductsService){
-
-  }
-
   ngOnInit(){
     this.dateReleasedControl = new FormControl(this.product.date_release,[Validators.required, this.validatorDate()]);
     this.dateRevisionControl = new FormControl(this.product.date_revision,[Validators.required]);

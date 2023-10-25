@@ -25,6 +25,7 @@ export class RegisterComponent {
     date_release: '',
     date_revision: ''
   };
+  error: string = "";
   
   constructor(private financialService: FinancialProductsService, private route: ActivatedRoute, private router: Router){}
 
@@ -55,12 +56,13 @@ export class RegisterComponent {
 
   responseCreateSucessfull(data: FinancialProduct){
     console.log(data)
+    this.error = "";
     this.router.navigate(['/']);
   }
 
   responseCreateError(data:HttpErrorResponse){
-    if(data.status == 400)
-      alert(data.error);
+    console.log(data);
+    this.error = data.error;
   }
 
   updateProduct(product: FinancialProduct){
@@ -71,12 +73,13 @@ export class RegisterComponent {
   }
 
   responseUpdateSucessfull(data: FinancialProduct){
-    console.log(data)
+    console.log(data);
+    this.error = "";
     this.router.navigate(['/']);
   }
 
   responseUpdateError(data:HttpErrorResponse){
-    if(data.status == 400)
-      alert(data.error);
+    console.log(data);
+    this.error = data.error;
   }
 }

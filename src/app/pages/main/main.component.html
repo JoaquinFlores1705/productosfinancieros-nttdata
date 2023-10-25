@@ -6,6 +6,9 @@
         </a>
     </button>
 </div>
+<div class="error" *ngIf="error != ''">
+    <p>{{error}}</p>
+</div>
 <div class="table">
     <app-table-financial-products [products]="productsSearch" (editProductEvent)="EditProduct($event)" (deleteProductEvent)="DeleteProduct($event)"></app-table-financial-products>
 </div>

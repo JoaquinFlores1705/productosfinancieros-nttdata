@@ -15,6 +15,7 @@ export class MainComponent {
   productsSearch:FinancialProduct[] = [];
   products:FinancialProduct[] = [];
   searchText: string = "";
+  error: string = "";
   
   constructor(private financialService: FinancialProductsService, private router: Router){
 
@@ -41,8 +42,9 @@ export class MainComponent {
   }
 
   responseGetError(data:HttpErrorResponse){
-    if(data.status == 400)
-      alert(data.error);
+    console.log(data);
+    this.error = "";
+    this.error = data.error;
   }
 
   EditProduct(id:string){
@@ -57,11 +59,14 @@ export class MainComponent {
   }
 
   responseDeleteSucessfull(data: string){
-    alert(data)
+    this.error = "";
+    this.ngOnInit();
   }
 
   responseDeleteError(data:HttpErrorResponse){
-      alert(data.error);
+    console.log(data);
+    this.error = "";
+    this.error = data.error;
   }
 
 }
